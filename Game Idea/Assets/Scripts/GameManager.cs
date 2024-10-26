@@ -17,9 +17,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    public void PlayerDied()
+    {
+        Time.timeScale = 0;
+    }
     public void RestartLevel()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

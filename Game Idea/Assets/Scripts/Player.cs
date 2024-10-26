@@ -38,8 +38,15 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject); // Destroy the character
+        GameManager.Instance.PlayerDied();
+       
         isAlive = false;
+        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.target = null;
+        }
+        Destroy(gameObject); // Destroy the character
         // Add your death logic here (e.g., play an animation, restart the level)
         //GameManager.Instance.RestartLevel(); // Assuming you have a GameManager to restart the level
     }
