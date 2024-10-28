@@ -4,19 +4,40 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rb;
     public float jumpForce = 10f;
+    public float moveSpeed = 5f; // Speed of movement to the right
     private bool isAlive = true;
+
+    private CameraFollow cameraFollow; // Reference to the CameraFollow script
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        // Set the camera target to this player instance
+        cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.target = transform; // Set the camera target to the player's transform
+        }
     }
 
     private void Update()
     {
-        if (isAlive && Input.GetKeyDown(KeyCode.Space))
+        if (isAlive)
         {
-            Jump();
+            MoveRight();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
         }
+    }
+
+    private void MoveRight()
+    {
+        // Move the character to the right at a fixed speed
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
     }
 
     private void Jump()
@@ -39,16 +60,17 @@ public class Player : MonoBehaviour
     private void Die()
     {
         GameManager.Instance.PlayerDied();
-       
+
         isAlive = false;
-        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
+
+        // Stop the camera from following
         if (cameraFollow != null)
         {
-            cameraFollow.target = null;
+            cameraFollow.target = null; // Set the target to null to stop following
         }
+
+        // Optionally handle other death logic here (e.g., play an animation)
         Destroy(gameObject); // Destroy the character
-        // Add your death logic here (e.g., play an animation, restart the level)
-        //GameManager.Instance.RestartLevel(); // Assuming you have a GameManager to restart the level
     }
 
     private bool IsGrounded()
