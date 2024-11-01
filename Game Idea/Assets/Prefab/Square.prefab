@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 7919528421957777980}
   - component: {fileID: 748453460379986962}
   - component: {fileID: 4567167221797076329}
-  - component: {fileID: 9162355841403479325}
   - component: {fileID: 4717353080198882320}
   - component: {fileID: 5145382015784663251}
-  - component: {fileID: 7977871198526937012}
-  - component: {fileID: 2550752606000177892}
+  - component: {fileID: 2906113409863849940}
   m_Layer: 0
   m_Name: Square
   m_TagString: Player
@@ -88,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9162355841403479325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8404465589055757844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bc02b809032f94c841b1fe787d4126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 500
-  fallMultiplier: 2.5
 --- !u!54 &4717353080198882320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &5145382015784663251
 BoxCollider:
@@ -150,20 +134,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7977871198526937012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8404465589055757844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4280bcaea7be7e143aaf5c9ab5bc44eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
---- !u!114 &2550752606000177892
+--- !u!114 &2906113409863849940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae953a04ce23d1d4fa2fde6a66ca1fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 0.25
-  moveSpeed: 3
+  jumpForce: 18
+  moveSpeed: 10
+  fallMultiplier: 2

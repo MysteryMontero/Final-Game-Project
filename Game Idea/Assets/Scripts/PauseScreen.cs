@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu; // Drag the PauseMenu panel here in the Inspector
-    private bool isPaused = true;
+    private bool isPaused = false;
 
     void Update()
     {
@@ -35,6 +36,12 @@ public class PauseManager : MonoBehaviour
         pauseMenu.SetActive(false); // Hide the pause menu
         Time.timeScale = 1f;        // Resume time
         isPaused = false;
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f; // Ensure the game is unpaused
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
     }
 
     // Optional methods for buttons

@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target; // Assign the player in the Inspector
-    public Vector3 offset; // Set the desired offset in the Inspector
-    public float followSpeed = 10f;
+    public Transform target;       // Assign your cube to this in the Inspector
+    public float yOffset = 2f;     // Offset along the Y-axis
+    public float smoothSpeed = 10f;
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         if (target != null)
         {
-            Vector3 desiredPosition = target.position + offset;
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
+            Vector3 desiredPosition = new Vector3(target.position.x, target.position.y + yOffset, transform.position.z);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            transform.position = smoothedPosition;
         }
     }
 }
