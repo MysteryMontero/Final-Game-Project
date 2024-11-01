@@ -51,4 +51,10 @@ public class GameManager : MonoBehaviour
         // Instantiate the character prefab at the specified position and rotation
         currentCharacter = Instantiate(characterPrefab, spawnPosition, Quaternion.identity);
     }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1f; // Unpause the game if it was paused
+                             // Add any other game start logic here if needed
+    }
 }
