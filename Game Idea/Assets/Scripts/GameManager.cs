@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentCharacter; // To keep track of the instantiated character
 
+    public DeathScreenManager deathScreenManager; // Reference to the DeathScreenManager
+
     private void Awake()
     {
         if (Instance == null)
@@ -30,14 +32,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        Time.timeScale = 0;
+        // Call the death screen method
+        deathScreenManager.ShowDeathScreen(); // Show the death screen
         // Optionally handle character destruction or respawn logic here
-    }
-
-    public void RestartLevel()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SpawnCharacter(Vector3 spawnPosition)
