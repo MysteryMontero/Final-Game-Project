@@ -148,6 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   initialJumpForce: 5
-  holdJumpForce: 10
+  holdJumpForce: 8
   maxJumpTime: 0.3
   fallMultiplier: 2
