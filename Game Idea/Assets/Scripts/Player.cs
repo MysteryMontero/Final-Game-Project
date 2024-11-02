@@ -73,8 +73,12 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        Debug.Log("Player has died."); // Log when the player dies
+
+        // Notify the GameManager to show the death screen
         GameManager.Instance.PlayerDied();
-        isAlive = false;
+
+        isAlive = false; // Mark the player as dead
 
         // Stop the camera from following
         if (cameraFollow != null)
@@ -82,7 +86,13 @@ public class Player : MonoBehaviour
             cameraFollow.target = null; // Set the target to null to stop following
         }
 
-        // Destroy the character
-        Destroy(gameObject);
+        // Optionally, invoke the destruction after a delay to see the death screen
+        Invoke("DestroyPlayer", 0.1f); // Delay destruction to allow the death screen to display
+    }
+
+    // New method to destroy the player object
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject); // Destroy the player object
     }
 }

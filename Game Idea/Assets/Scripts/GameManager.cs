@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,9 +31,15 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        // Call the death screen method
-        deathScreenManager.ShowDeathScreen(); // Show the death screen
-        // Optionally handle character destruction or respawn logic here
+        // Show the death screen when the player dies
+        if (deathScreenManager != null)
+        {
+            deathScreenManager.ShowDeathScreen();
+        }
+        else
+        {
+            Debug.LogWarning("DeathScreenManager is not assigned in the GameManager.");
+        }
     }
 
     public void SpawnCharacter(Vector3 spawnPosition)
