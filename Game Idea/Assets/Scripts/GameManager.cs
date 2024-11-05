@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentCharacter; // To keep track of the instantiated character
 
+    public GameObject deathScreenPanel;
+
     private void Awake()
     {
         if (Instance == null)
@@ -26,12 +28,24 @@ public class GameManager : MonoBehaviour
     {
         // Spawn the character at the specified spawn position
         SpawnCharacter(spawnPosition);
+        if (deathScreenPanel != null)
+        {
+            deathScreenPanel.SetActive(false); // Hide initially
+        }
     }
 
     public void PlayerDied()
     {
         Time.timeScale = 0;
         // Optionally handle character destruction or respawn logic here
+
+        {
+            if (deathScreenPanel != null)
+            {
+                deathScreenPanel.SetActive(true);  // Display the death screen
+            }
+            Time.timeScale = 0; // Pause the game
+        }
     }
 
     public void RestartLevel()
@@ -55,6 +69,5 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f; // Unpause the game if it was paused
-                             // Add any other game start logic here if needed
     }
 }
