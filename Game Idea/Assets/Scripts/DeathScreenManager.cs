@@ -34,7 +34,7 @@ public class DeathScreenManager : MonoBehaviour
         }
     }
 
-    public void RestartGame()
+    public void RestartLevel()
     {
         // Ensure the game resumes before reloading the scene
         Time.timeScale = 1;
