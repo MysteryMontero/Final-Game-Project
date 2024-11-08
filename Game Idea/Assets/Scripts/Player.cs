@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
             {
                 rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             }
+
         }
     }
 
