@@ -9,7 +9,8 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         // Check for the pause input (e.g., Escape key)
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isCountdownActive &&
+            !GameManager.Instance.isPlayerDead)
         {
             if (isPaused)
             {
