@@ -7450,8 +7450,8 @@ Transform:
   m_GameObject: {fileID: 527890741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.56, y: 5.6, z: 0}
-  m_LocalScale: {x: 19.571442, y: 1.6238, z: 3}
+  m_LocalPosition: {x: 75.0302, y: 5.6, z: 0}
+  m_LocalScale: {x: 20.51087, y: 1.6238, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1190397811}
@@ -12048,8 +12048,8 @@ Transform:
   m_GameObject: {fileID: 878014323}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.5505, y: 2.3629, z: 0}
-  m_LocalScale: {x: 35.577984, y: 1.6238, z: 3}
+  m_LocalPosition: {x: 67.0235, y: 2.3629, z: 0}
+  m_LocalScale: {x: 36.52163, y: 1.6238, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 20806066}
@@ -28767,6 +28767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd8b0aecc013b94e944b5e4214562bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCountdownActive: 0
   characterPrefab: {fileID: 8404465589055757844, guid: d3f0f99ce9a6db940893197db2e0ab01, type: 3}
   spawnPosition: {x: -10, y: 2, z: 0}
   deathScreenPanel: {fileID: 1246025716}
@@ -29018,8 +29019,8 @@ Transform:
   m_GameObject: {fileID: 2044699198}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.5838, y: 3.98, z: 0}
-  m_LocalScale: {x: 27.514498, y: 1.6238, z: 3}
+  m_LocalPosition: {x: 71.0546, y: 3.98, z: 0}
+  m_LocalScale: {x: 28.4548, y: 1.6238, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 690789748}

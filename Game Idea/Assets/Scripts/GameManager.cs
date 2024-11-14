@@ -5,12 +5,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool isCountdownActive = false; // Flag to track if countdown is active
+
     public GameObject characterPrefab; // Assign your character prefab in the Inspector
+
     public Vector3 spawnPosition = new Vector3(0, 0, 0); // Default spawn position
 
     private GameObject currentCharacter; // To keep track of the instantiated character
 
     public GameObject deathScreenPanel;
+
+    public bool isPlayerDead = false; // Tracks death state
 
     private void Awake()
     {
@@ -36,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
+        isPlayerDead = true; // Set to true when the player dies
         Time.timeScale = 0;
         // Optionally handle character destruction or respawn logic here
 
@@ -44,7 +50,6 @@ public class GameManager : MonoBehaviour
             {
                 deathScreenPanel.SetActive(true);  // Display the death screen
             }
-            Time.timeScale = 0; // Pause the game
         }
     }
 
@@ -69,5 +74,17 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f; // Unpause the game if it was paused
+    }
+
+    public void StartCountdown()
+    {
+        isCountdownActive = true;
+        // Start your countdown logic here
+    }
+
+    public void EndCountdown()
+    {
+        isCountdownActive = false;
+        // Trigger game start logic here
     }
 }

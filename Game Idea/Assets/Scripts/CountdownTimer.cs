@@ -18,6 +18,9 @@ public class Countdown : MonoBehaviour
 
     private IEnumerator StartCountdown()
     {
+        // Notify GameManager that countdown is active
+        GameManager.Instance.isCountdownActive = true;
+
         Time.timeScale = 0; // Freeze game time
         levelText.gameObject.SetActive(true);
         levelText.text = "Level 1"; // Set level text
@@ -50,5 +53,8 @@ public class Countdown : MonoBehaviour
 
         goText.gameObject.SetActive(false); // Hide "Go!" text
         Time.timeScale = 1; // Unfreeze game time
+
+        // Notify GameManager that countdown is complete
+        GameManager.Instance.isCountdownActive = false;
     }
 }
