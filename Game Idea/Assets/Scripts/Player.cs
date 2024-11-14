@@ -76,6 +76,11 @@ public class Player : MonoBehaviour
         {
             isGrounded = true;
         }
+
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            GameManager.Instance.LevelCompleted();
+        }
     }
 
     private void OnCollisionExit(Collision other)

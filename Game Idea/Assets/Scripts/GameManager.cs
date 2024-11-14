@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -86,5 +87,12 @@ public class GameManager : MonoBehaviour
     {
         isCountdownActive = false;
         // Trigger game start logic here
+    }
+
+    public GameObject successScreenPanel; // Assign your success screen panel in Inspector
+
+    public void LevelCompleted()
+    {   
+       successScreenPanel.SetActive(true); // Show the success screen 
     }
 }

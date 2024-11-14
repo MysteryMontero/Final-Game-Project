@@ -718,8 +718,8 @@ Transform:
   m_GameObject: {fileID: 209067560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 333.07, y: -2, z: 0}
-  m_LocalScale: {x: 2000, y: 7.112658, z: 3}
+  m_LocalPosition: {x: 333.07, y: -3.3214, z: 0}
+  m_LocalScale: {x: 2000, y: 9.755722, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2543,7 +2543,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3326,9 +3326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd8b0aecc013b94e944b5e4214562bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCountdownActive: 0
   characterPrefab: {fileID: 8404465589055757844, guid: d3f0f99ce9a6db940893197db2e0ab01, type: 3}
   spawnPosition: {x: -10, y: 2, z: 0}
   deathScreenPanel: {fileID: 23316253}
+  isPlayerDead: 0
+  successScreenPanel: {fileID: 0}
 --- !u!4 &1257425395
 Transform:
   m_ObjectHideFlags: 0
@@ -3351,7 +3354,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236184296}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3af4315b85fc3418bcdc14a08d435b, type: 3}
   m_Name: 
@@ -3713,7 +3716,7 @@ GameObject:
   - component: {fileID: 1536792344}
   - component: {fileID: 1536792343}
   m_Layer: 5
-  m_Name: Level 1
+  m_Name: Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3758,7 +3761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fad366fb34e99144297bda33490724a1, type: 2}
   m_sharedMaterial: {fileID: 3275295786892888832, guid: fad366fb34e99144297bda33490724a1, type: 2}

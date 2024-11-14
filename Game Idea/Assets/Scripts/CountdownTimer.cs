@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class Countdown : MonoBehaviour
         StartCoroutine(StartCountdown());
     }
 
+    private void UpdateLevelText()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex; // Get the current scene's build index
+        levelText.text = "Level " + currentLevel; // Update level text
+    }
+
     private IEnumerator StartCountdown()
     {
         // Notify GameManager that countdown is active
@@ -23,7 +30,6 @@ public class Countdown : MonoBehaviour
 
         Time.timeScale = 0; // Freeze game time
         levelText.gameObject.SetActive(true);
-        levelText.text = "Level 1"; // Set level text
         yield return new WaitForSecondsRealtime(1f); // Wait for 1 second
 
         levelText.gameObject.SetActive(false); // Hide level text
