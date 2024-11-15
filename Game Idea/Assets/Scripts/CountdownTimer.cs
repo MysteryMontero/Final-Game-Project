@@ -1,26 +1,21 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-using TMPro;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 public class Countdown : MonoBehaviour
 {
-    public TextMeshProUGUI levelText; // Drag Level Text from hierarchy
-    public TextMeshProUGUI countdownText3; // Drag Countdown Text for "3"
-    public TextMeshProUGUI countdownText2; // Drag Countdown Text for "2"
-    public TextMeshProUGUI countdownText1; // Drag Countdown Text for "1"
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI countdownText3;
+    public TextMeshProUGUI countdownText2;
+    public TextMeshProUGUI countdownText1;
     public TextMeshProUGUI goText;
+
+    private bool isSkipped = false; // Flag to track if countdown was skipped
 
     private void Start()
     {
         StartCoroutine(StartCountdown());
-    }
-
-    private void UpdateLevelText()
-    {
-        int currentLevel = SceneManager.GetActiveScene().buildIndex; // Get the current scene's build index
-        levelText.text = "Level " + currentLevel; // Update level text
     }
 
     private IEnumerator StartCountdown()
@@ -30,37 +25,76 @@ public class Countdown : MonoBehaviour
 
         Time.timeScale = 0; // Freeze game time
         levelText.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(1f); // Wait for 1 second
+        levelText.text = "Level " + SceneManager.GetActiveScene().buildIndex;
+        yield return WaitOrSkip(1f);
 
-        levelText.gameObject.SetActive(false); // Hide level text
+        levelText.gameObject.SetActive(false);
 
         // Show countdown for 3
         countdownText3.gameObject.SetActive(true);
         countdownText3.text = "3";
-        yield return new WaitForSecondsRealtime(1f); // Wait for 1 second
-        countdownText3.gameObject.SetActive(false); // Hide "3"
+        yield return WaitOrSkip(1f);
+        countdownText3.gameObject.SetActive(false);
 
         // Show countdown for 2
         countdownText2.gameObject.SetActive(true);
         countdownText2.text = "2";
-        yield return new WaitForSecondsRealtime(1f); // Wait for 1 second
-        countdownText2.gameObject.SetActive(false); // Hide "2"
+        yield return WaitOrSkip(1f);
+        countdownText2.gameObject.SetActive(false);
 
         // Show countdown for 1
         countdownText1.gameObject.SetActive(true);
         countdownText1.text = "1";
-        yield return new WaitForSecondsRealtime(1f); // Wait for 1 second
-        countdownText1.gameObject.SetActive(false); // Hide "1"
+        yield return WaitOrSkip(1f);
+        countdownText1.gameObject.SetActive(false);
 
         // Show "Go!" text
-        goText.gameObject.SetActive(true); // Show "Go!" text
+        goText.gameObject.SetActive(true);
         goText.text = "Go!";
-        yield return new WaitForSecondsRealtime(1f); // Wait for 1 second
+        yield return WaitOrSkip(1f);
+        goText.gameObject.SetActive(false);
 
-        goText.gameObject.SetActive(false); // Hide "Go!" text
         Time.timeScale = 1; // Unfreeze game time
 
         // Notify GameManager that countdown is complete
         GameManager.Instance.isCountdownActive = false;
+    }
+
+    // Helper function to wait or skip the countdown
+    private IEnumerator WaitOrSkip(float duration)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                isSkipped = true; // Set the flag
+                break;
+            }
+
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        if (isSkipped)
+        {
+            EndCountdown();
+        }
+    }
+
+    private void EndCountdown()
+    {
+        StopAllCoroutines(); // Stop the countdown coroutine
+        Time.timeScale = 1; // Unfreeze game time
+
+        // Hide all countdown-related UI
+        levelText.gameObject.SetActive(false);
+        countdownText3.gameObject.SetActive(false);
+        countdownText2.gameObject.SetActive(false);
+        countdownText1.gameObject.SetActive(false);
+        goText.gameObject.SetActive(false);
+
+        GameManager.Instance.isCountdownActive = false; // Notify GameManager
     }
 }

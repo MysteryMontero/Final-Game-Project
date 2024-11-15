@@ -2813,7 +2813,6 @@ GameObject:
   - component: {fileID: 754464418}
   - component: {fileID: 754464417}
   - component: {fileID: 754464416}
-  - component: {fileID: 754464415}
   m_Layer: 5
   m_Name: SucessMenu
   m_TagString: Untagged
@@ -2821,19 +2820,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &754464415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754464414}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6c31f39c8ea914299bc410cacf4629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 754464414}
 --- !u!114 &754464416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7101,11 +7087,11 @@ SceneRoots:
   - {fileID: 382341653}
   - {fileID: 1231475195}
   - {fileID: 659641954}
+  - {fileID: 23316252}
   - {fileID: 1414662852}
   - {fileID: 1257425395}
   - {fileID: 702204677}
   - {fileID: 554828185}
   - {fileID: 2127477063}
-  - {fileID: 23316252}
   - {fileID: 1088518222}
   - {fileID: 1522080308}

@@ -92,7 +92,12 @@ public class GameManager : MonoBehaviour
     public GameObject successScreenPanel; // Assign your success screen panel in Inspector
 
     public void LevelCompleted()
-    {   
-       successScreenPanel.SetActive(true); // Show the success screen 
+    {
+        successScreenPanel.SetActive(true); // Show the success screen
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); // Replace "MainMenu" with your menu scene name
     }
 }
